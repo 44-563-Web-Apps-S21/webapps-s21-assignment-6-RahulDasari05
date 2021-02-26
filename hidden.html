@@ -50,9 +50,31 @@
     </form>
     <p id="result">This text will be replaced</p>
 
+    <hr>
+
+    <div class="conatiner">
+        <img src="images/Ageratum.jpg" id="form1_image" class="rounded float-left" alt="Ageratum" onclick="rotateimage()" width="200" height="200">
+    </div>
+
+
+
     <script>
-      var correct = 0;
-      var wrong = 0;
+      var correct = 0
+      var wrong = 0
+      currentImage = 0
+      function rotateimage(){
+        
+        if(currentImage === 0){
+            document.getElementById("form1_image").src='images/AnnualVinca.jpg'
+            currentImage = currentImage + 1
+        }else if (currentImage === 1){
+            document.getElementById("form1_image").src='images/SeaHolly.jpg'
+            currentImage = currentImage + 1
+        }else {
+            document.getElementById("form1_image").src='images/Ageratum.jpg'
+            currentImage = 0
+        }        
+      }
 
       function processGuess() {
         console.log("Getting form values");
@@ -66,10 +88,7 @@
           wrong = wrong + 1;
           alert("Wrong answer");
         }
-
-
         out = document.getElementById("result");
-
         out.innerHTML =
           "correct number : " + correct + "\n" + "wrong answers : " + wrong;
       }
