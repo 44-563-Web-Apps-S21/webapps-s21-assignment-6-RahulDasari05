@@ -27,12 +27,26 @@
         value="2"
       />
       <br />
-
+      <br>
       <input type="button" onclick="permutations()" value="Compute" />
     </form>
-
+    
+    <form>
+        <input type="radio" id="plus" name="operation" value="plus"   
+          checked >
+        <label for="plus">+</label></br>
+        <input type="radio" id="minus" name="operation" 
+           value="minus">
+        <label for="rg1_blue">-</label></br>
+        <input type="radio" id="times" name="operation"   
+           value="times">
+        <label for="times">*</label></br>
+        <input type="radio" id="divide" name="operation"   
+        value="divide">
+     <label for="divide">/</label></br>
+        <input type="button" onclick="resolveRadio()" value="Result">
+      </form>
     <p id="result">This text will be replaced</p>
-
     <script>
       function permutations() {
         console.log("Getting form values");
@@ -47,6 +61,35 @@
 
         out.innerHTML = product;
       }
+      function resolveRadio(){
+        console.log("Getting form values");
+        first = document.getElementById("form1_first").value;
+        second = document.getElementById("form1_second").value;
+        plusOpt = document.getElementById("plus").checked
+        minusOpt = document.getElementById("minus").checked
+        timesOpt = document.getElementById("times").checked
+        divOpt = document.getElementById("divide").checked
+        out = document.getElementById("result");
+        if(plusOpt){
+            result = parseInt(first) + parseInt(second);
+            out.innerHTML = "Sum of "+first+" and "+second +" equals " +result; 
+        }else if(minusOpt){
+            result = first - second;
+            out.innerHTML = first+" take away "+second +" equals " +result;
+
+        }else if(timesOpt){
+            result = first * second;
+            out.innerHTML = first+" multiplied by "+second +" equals " +result;
+        }else if(divOpt){
+            
+            result = first / second;
+            out.innerHTML = first+" divided by "+second +" equals " +result;
+
+        }else{
+            out.innerHTML = "choose an operation";
+        }
+      }
+
     </script>
   </body>
 </html>
