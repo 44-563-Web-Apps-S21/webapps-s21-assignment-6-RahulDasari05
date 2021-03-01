@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My arithmetic computation</title>
+  </head>
+  <body>
+    <h1>Rahul computes</h1>
+
+    <h2>Getting input</h2>
+
+    <form>
+      <label for="form1_first_number">Enter a number </label>
+      <input
+        type="number"
+        id="form1_first"
+        name="form1_first"
+        step="2"
+        value="10"
+      />
+      <br />
+      <label for="form1_second_number">Enter a number </label>
+      <input
+        type="number"
+        id="form1_second"
+        name="form1_second"
+        step="2"
+        value="2"
+      />
+      <br />
+
+      <input type="button" onclick="permutations()" value="Compute" />
+    </form>
+
+    <p id="result">This text will be replaced</p>
+
+    <script>
+      function permutations() {
+        console.log("Getting form values");
+        first = document.getElementById("form1_first").value;
+        second = document.getElementById("form1_second").value;
+        var product = 1;
+        for(var i=first;i>=(first-second+1);i--){
+            product *=i;
+        }
+
+        out = document.getElementById("result");
+
+        out.innerHTML = product;
+      }
+    </script>
+  </body>
+</html>
