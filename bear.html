@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head><title>Rahul's bear</title></head>
+
+<body>
+
+<h1>Rahul builds a bear</h1>
+
+<form>
+    <input type="checkbox" id="hat" name="topping1"   
+      value="hat" checked>
+    <label for="cb1_hat">hat</label></br>
+  
+    <input type="checkbox" id="scarf" name="scarf" 
+       value="scarf">
+    <label for="cb1_scarf">scarf</label></br>
+  
+    <input type="checkbox" id="shirt" name="shirt"   
+       value="shirt" checked>
+    <label for="cb1_shirt">shirt</label></br>
+
+    <input type="button" onclick="startBear()" value="Get values from check boxes">
+  </form>
+  <p id="chk_result">This text will be replaced </p>
+
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+var my_bear;
+    function startBear(){
+    my_bear = "";
+    console.log("Getting input")
+    hat = document.getElementById("hat").checked
+    scarf = document.getElementById("scarf").checked
+    shirt = document.getElementById("shirt").checked
+    my_bear = "hat : "+hat +" scarf: "+scarf+" shirt: "+shirt;
+    
+        out = document.getElementById("chk_result")
+    
+        out.innerHTML = my_bear
+}
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
