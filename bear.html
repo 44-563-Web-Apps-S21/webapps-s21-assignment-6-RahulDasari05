@@ -28,13 +28,13 @@
 <h2>Getting input</h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <label for="form1_property">Enter a property </label>
+    <input type ="text" id="form1_property" name="form1_color" value='color' autofocus> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <label for="form1_value">Enter a value </label>
+    <input type ="text" id="form1_value" name="form1_value" > <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" onclick="updateBear()" value="Update the bear">
 </form>
 
 
@@ -55,18 +55,17 @@ var my_bear;
         out.innerHTML = my_bear
 }
 
-function resolveForm (){
+function updateBear (){
     console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    property = document.getElementById("form1_property").value
+    value = document.getElementById("form1_value").value
+    
+    my_bear = "my_bear["+property+"] = "+value
     
     out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
+  
+    out.innerHTML = my_bear
+    
 }
 </script>
 
